@@ -26,9 +26,9 @@ function generateMap()
 	local px = 0
 	local py = 0
 	local dir = math.random(4)
-	local w = 20
-	local h = 20
-	while count < 128 do
+	local w = 40
+	local h = 40
+	while count < 256 do
 		if math.random() > 0.5 then
 			dir = dir+1
 			if dir > 4 then dir = 1 end

@@ -151,18 +151,16 @@ function MapState(mapdata, events)
 		self.scene:update(dtime)
 		self.ui:update(dtime)
       
-      if self.move_direction ~= -1 then
-         self.move_timer = self.move_timer + dtime
-      else
-         self.move_timer = 0
-      end
+		if self.move_direction ~= -1 then
+			self.move_timer = self.move_timer + dtime
+		else
+			self.move_timer = 0
+		end
       
-      if self.move_timer > 0.3 then
-         if self.move_timer > 0.5 then
-            self:movePlayer(self.cursor.direction)
-            self.move_timer = 0.3
-         end
-      end
+		if self.move_timer > 0.2 then
+			self:movePlayer(self.cursor.direction)
+			self.move_timer = 0.0
+		end
 		
 		self.camera.x = -love.graphics.getWidth()/2  + (TW*self.player.x) + TW/2
 		self.camera.y = -love.graphics.getHeight()/2 + (TH*self.player.y) + TH/2
