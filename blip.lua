@@ -4,17 +4,17 @@ function Blip(x, y, state, biome, slider, flag)
 	local blip = {
 		x = x,
 		y = y,
-      biome = biome,
+		biome = biome,
 		state = state,
-      condition_slider = slider,
-      condition_flag = flag,
-      active = false
+		condition_slider = slider,
+		condition_flag = flag,
+		active = false,
 	}
 	
 	function blip:draw()
-      if active == false then 
-         return
-      end
+		if active == false then 
+			return
+		end
       
 		love.graphics.setLineWidth(3)
 		love.graphics.setBlendMode('additive')
@@ -28,23 +28,21 @@ function Blip(x, y, state, biome, slider, flag)
 		love.graphics.setBlendMode('alpha')
 	end
    
-   function blip:testConditions()
-      if self.condition_slider then
-         if(sliders[self.condition_slider.type] < self.condition_slider.amount) then
-            self.active = false
-            return
-         end
-      end
+	function blip:testConditions()
+		if self.condition_slider then
+			if(sliders[self.condition_slider.type] < self.condition_slider.amount) then
+				self.active = false
+				return
+			end
+		end
       
       if self.condition_flag then
          if(flags[self.condition_flag] == false) then
             self.active = false
             return
-         end
-      end
-      
+        end
       self.active = true
-   end
+    end
 	
 	return blip
 end

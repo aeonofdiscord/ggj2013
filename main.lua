@@ -25,6 +25,8 @@ biomonitor = {
 	o2 = 1.0,
 }
 
+loaded = false
+
 function generateMap()
 	local mapdata = {}
 	
@@ -98,15 +100,18 @@ function love.load()
 	local e = io.open('data/events.argon')
 	local events = argon.load(e:read("*all"))
 	
-   state = {}
+	state = {}
 	state[1] = MapState(mapdata, events)
 	
-	love.mouse.setVisible(false)
-	
+	love.mouse.setVisible(false)	
 end
 
 function love.draw()
 	state[#state]:draw()
+end
+
+function love.keypressed(key)
+	love.event.push('q')
 end
 
 function love.mousepressed(mx, my, button)
