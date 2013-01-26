@@ -15,8 +15,8 @@
 			image: "blah.png",
 			text: "Dense mists swirl around you and the surrounding plant life; a collection of red and purple stemmed shrubs and bushes. After walking for a short while through the unearthly vegetation, your attention is suddenly drawn towards the sound of shuffling leaves. There appears to be some activity among the shrubbery ahead. The waist-height leaves and buds effectively obscuring the ground from this distance, the plant stalks continue to bend and rustle.",
 			options: [
-				{ text: "Sprint away from the noise as quickly as your feet will carry you",  modify: ["paranoia", 1] },
-				{ text: "Move closer to the disturbance and investigate its source", modify: ["curiosity", 1] },
+				{ text: "Sprint away from the noise as quickly as your feet will carry you.",  modify: ["paranoia", 1] },
+				{ text: "Move closer to the disturbance and investigate its source.", modify: ["curiosity", 1] },
 				{ text: "Proceed on your way; paying no heed to the noise.",  modify: ["pragmatism", 1] }
 			]
 		},
@@ -24,36 +24,84 @@
 			image: "blah.png",
 			text: "Amidst a bank of thick fog and curious plant life, you come across a small area conspicuously devoid of flora. Set in the ground of this miniature clearing are a number of mounds of upturned earth. Just as you begin to ponder the situation, one of the hills erupts in a shower of saturated dirt and pebbles. When the dust settles there is small, hairless creature sat astride the newly burrowed hole. Regarding you with small, beady eyes, it raises itself onto its haunches and nervously flicks its disproportionately enormous ears towards its other surroundings.",
 			options: [
-				{ text: "Approach the creature in a genial, non-threatening manner", modify: ["empathy", 1] },				
-				{ text: "Circle around the strange creature, keeping your gaze fixed upon it", modify: ["pragmatism", 1] },				
-				{ text: "Stand perfectly still and observe the creature's reaction", modify: ["curiosity", 1] }
+				{ text: "Approach the creature in a genial, non-threatening manner.", modify: ["empathy", 1] },				
+				{ text: "Circle around the strange creature, keeping your gaze fixed upon it.", modify: ["pragmatism", 1] },				
+				{ text: "Stand perfectly still and observe the creature's reaction.", modify: ["curiosity", 1] }
 			]
 		},
 		{
 			image: "blah.png",
 			text: "A dense patch of foliage sits before you; bare trunks reach toward the arid sky before exploding outwards into broad, far-reaching leaves; deep violet or indigo in color, like much of the vegetation in this strange land. A clear pathway cuts directly through the center of the forest, disappearing into and over the visible horizon.",
 			options: [
-				{ text: "Venture off the beaten track and examine these strange surroundings more closely", modify: ["curiosity", 1] },
-				{ text: "Follow the road through the centre", modify: ["pragmatism", 1]},
-				{ text: "Give the formation a wide berth and avoid entering it completely", modify: ["paranoia", 1] }
+				{ text: "Venture off the beaten track and examine these strange surroundings more closely.", modify: ["curiosity", 1] },
+				{ text: "Follow the road through the centre.", modify: ["pragmatism", 1]},
+				{ text: "Give the formation a wide berth and avoid entering it completely.", modify: ["paranoia", 1] }
 			]
 		},
 		{
 			image: "blah.png",
 			text: "As you venture deeper into the woodland, the canopy finally becomes thick enough to provide some respite from the merciless assault of the sun. Just as the sensation of finally being out of the direct light sets in, you notice a strange looking growth protruding from one of the low-hanging tree branches ahead. It seems to be some kind of fruit, but on closer inspection it appears foreign and warped, its edges ridged with gnarled thorns; some manner of thick, brown fluid appears to be leaking from its centre.",
 			options: [
-				{ text: "Ignore the strange plant and continue onwards", modify: ["pragmatism", 1] },
-				{ text: "Pick the 'fruit' and attempt to eat it", modify: ["curiosity", 1] },
+				{ text: "Ignore the strange plant and continue onwards.", modify: ["pragmatism", 1] },
+				{ text: "Pick the 'fruit' and attempt to eat it.", modify: ["curiosity", 1] },
+			]
+		},
+		{
+			biome: "canyon",
+			image: "blah.png",
+			text: "As you press forward the pathway seems to narrow; the canyon walls now looming far overhead and the thick canopy causing your vision of the path to become murky and obscured; until you finally come to what appears to be the end of the canyon. As you begin to turn back however, movement in the periphery of your vision pulls your attention, staring for a few moments it becomes clear that the blockage is in fact moving. As your eyes fully adjust to the shadows you can make out a mass of vegetative tendrils; thick with briarthorn and meshed tightly together; it shudders and quakes as it blocks your progress forward.",
+			options: [
+				{ text: "Proceed toward the obstruction.", modify: ["empathy", 1]},
+				{ text: "Approach the mass and attempt to force your way forward.", modify: ["aggression", 1]},
+				{ text: "Turn back and attempt to find another path around the blockage.", modify: ["pragmatism", 1]},
+			]
+		},
+		{
+			biome: "desert",
+			image: "blah.png",
+			text: "Stumbling amidst the shifting sand dunes, the debilitating heat reflecting off the horizon in a vast haze, seemingly miles high - you notice a dark spot in the distance. For just a second it appears to take the shape of a man, distorted by the shimmering dunes; your eyes refuse to focus on the figure for more than a second as it continues to twitch and dance just beyond perception.",
+			options: [
+				{ text: "Take cover behind the nearest dune crest and disguise yourself as best you can.", modify: ["paranoia", 1] },
+				{ text: "Make your way toward the figure.", modify: ["empathy", 1] },
+				{ text: "Stand your ground and observe the figure for a while.", modify: ["curiosity", 1] },
+			]
+		},
+		{
+			biome: "desert",
+			image: "blah.png",
+			text: "You have stumbled into the roots of what appears to be an expansive desert; white-hot sands shift and flow at the wind's breath and towering dust-devils wander the plains beyond the horizon. You reach the top of a nearby sand dune and are greeted by an ominous sight. Lying in the space between the crest of this dune and the next is what appears to be an enormous arachnid, easily twelve feet in span, megalith still amongst the surrounding debris.",
+			options: [
+				{ text: "Carefully approach the beast to get a better idea of what you are looking at.", modify: ["curiosity", 1] },
+				{ text: "Grab the nearest blunt or sharpened object and attempt to slay the creature.", modify: ["aggression", 1] },
+				{ text: "Make a hasty retreat back the way you came.", modify: ["pragmatism", 1] }
 			]
 		},
 		{
 			image: "blah.png",
-			text: "As you press forward the pathway seems to narrow; the canyon walls now looming far overhead and the thick canopy causing your vision of the path to become murky and obscured; until you finally come to what appears to be the end of the canyon. As you begin to turn back however, movement in the periphery of your vision pulls your attention, staring for a few moments it becomes clear that the blockage is in fact moving. As your eyes fully adjust to the shadows you can make out a mass of vegetative tendrils; thick with briarthorn and meshed tightly together; it shudders and quakes as it blocks your progress forward.",
+			text: "As the last hints of the oppressive glow of the sun finally disappear over the horizon, the world around you seems vastly changed. Small creatures scurry for cover or begin to burrow their way underground; as the moments pass the reason becomes clear. A pervasive chill begins to seep its way into your bones and within minutes you are profoundly cold. Your muscles complain about the various aches of the day’s activities and you begin to feel weary. The night air is bitter chill and utterly still; as the world around you suddenly seems deserted.",
 			options: [
-				{ text: "Proceed toward the obstruction", modify: ["empathy", 1]},
-				{ text: "Approach the mass and attempt to force your way forward", modify: ["aggression", 1]},
-				{ text: "Turn back and attempt to find another path around the blockage", modify: ["pragmatism", 1]},
+				{ text: "Look for a comfortable spot and attempt to get some sleep.", modify: ["pragmatism", 1] },
+				{ text: "Stay awake at any cost.", modify: ["paranoia", 1] }
 			]
-		}
+		},
+		{
+			image: "blah.png",
+			text: "The intense heat shows few signs of letting up as your equipment begins to indicate that the stock of water you brought with you is running low. Fortunately there appears to be a series of small, clear rivulets nestled amongst the hills ahead. Approaching the formations all indications point to their contents being water, and of sufficient purity for drinking.",
+			options: [
+				{ text: "Take a quick drink from the pools and refill your supply.", modify: ["curiosity", 1] },
+				{ text: "Fill a portable canteen with some of the fluid in case of emergency.", modify: ["pragmatism", 1] },
+				{ text: "Leave the waters alone and continue on your way.", modify: ["paranoia", 1] },  
+			]
+		},
+		{
+			image: "blah.png",
+			text: "As the vindictive sun reaches its apex, the midday heat becomes almost unbearable; a miasma of never-ending heat clawing its way through your system. A short way ahead you can just make out an opening in the landscape through the swells of dust. Proceeding toward the opening, you peer into the blackness: there seems to be a soft azure light emanating from towards the rear of the cave, its source just out of sight behind a turn in the underground path.",
+			
+			options: [
+				{ text: "Set up a small camp in the entrance of the cave and rest for a while.", modify: ["pragmatism", 1] },
+				{ text: "Avoid the hollow completely and move on with your travels.", modify: ["paranoia", 1] },
+				{ text: "Travel to the rear of the cave to try and discover the source of the glow.", modify: ["curiosity", 1] },
+			],
+		},
 	]
 }
