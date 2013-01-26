@@ -1,6 +1,6 @@
 local frames = {}
 
-for _,f in ipairs({'heart1', 'heart2', 'heart3', 'heart4', 'heart5', 'heart6', 'heart7'}) do
+for _,f in ipairs({'heart1', 'heart2', 'heart3', 'heart4', 'heart5', 'heart6', 'heart7', 'heart1', 'heart1', 'heart1', 'heart1', 'heart1'}) do
 	table.insert(frames, love.graphics.newImage('ui/' .. f .. '.png'))
 end
 
@@ -12,7 +12,7 @@ function PulseMonitor()
 		y = love.graphics.getHeight()-h,
 		w = w,
 		h = h,
-		frameTime = 0.15,
+		frameTime = 0.1,
 		time = 0,
 		frame = 1,
 	}

@@ -12,16 +12,22 @@ sliders = {
 	pragmatism = 0,
 }
 
+biomonitor = {
+	pulse = 0.15,
+	o2 = 1.0
+}
+
 function generateMap()
 	local mapdata = {}
 	
 	function tileAt(x, y)
 		for _,t in ipairs(mapdata) do
-			if t[1] == x and t[2] == y then return true end
+			if t.x == x and t.y == y then return t.tile end
 		end
-		return false
+		return nil
 	end
 	
+	print('generating terrain')
 	local count = 0
 	local px = 0
 	local py = 0
@@ -52,8 +58,22 @@ function generateMap()
 		if py < -h then py = py+1 end
 		if py > h then py = py-1 end
 		if not tileAt(px, py) then
-			table.insert(mapdata, {px, py})
+			table.insert(mapdata, {x=px, y=py, tile=1})
 			count = count+1
+		end
+	end
+	
+	for py = -h,h do
+		for px = -w,w do
+			if not tileAt(px, py) then
+				local n = tileAt(px,py-1) == 1
+				local e = tileAt(px+1,py) == 1
+				local s = tileAt(px,py+1) == 1
+				local w = tileAt(px-1,py) == 1
+				if n or e or s or w then
+					table.insert(mapdata, {x=px, y=py, tile=3})
+				end
+			end
 		end
 	end
 	
@@ -74,6 +94,7 @@ function love.load()
 	state[1] = MapState(mapdata, events)
 	
 	love.mouse.setVisible(false)
+	
 end
 
 function love.draw()

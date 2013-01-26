@@ -18,6 +18,7 @@ function Map(x, y, mapdata)
 	}
 	
 	function map:build()
+		print('building map')
 		self.tiles = {}
 		for i=0, tileImage:getWidth()/64 do
 			table.insert(self.tiles, love.graphics.newQuad(i*64, 0, 64, 64, tileImage:getWidth(), tileImage:getHeight()))
@@ -28,17 +29,17 @@ function Map(x, y, mapdata)
 		local minY = nil
 		local maxY = nil
 		for _,s in ipairs(mapdata) do
-			if minX == nil or s[1] < minX then
-				minX = s[1]
+			if minX == nil or s.x < minX then
+				minX = s.x
 			end
-			if maxX == nil or s[1] > maxX then
-				maxX = s[1]
+			if maxX == nil or s.x > maxX then
+				maxX = s.x
 			end
-			if minY == nil or s[2] < minY then
-				minY = s[2]
+			if minY == nil or s.y < minY then
+				minY = s.y
 			end
-			if maxY == nil or s[2] > maxY then
-				maxY = s[2]
+			if maxY == nil or s.y > maxY then
+				maxY = s.y
 			end
 		end
 		self.w = (maxX - minX) * TW
@@ -46,14 +47,16 @@ function Map(x, y, mapdata)
 		
 		function tileAt(x,y)
 			for _,s in ipairs(mapdata) do
-				if s[1] == x and s[2] == y then return true end
+				if s.x == x and s.y == y then return s.tile end
 			end
+			return nil
 		end
 		
 		for py = minY-1, maxY+1 do
 			for px = minX-1, maxX+1 do
-				if tileAt(px, py) then
-					table.insert(self.squares, {x = px, y = py, tile = 1})
+				local tile = tileAt(px, py)
+				if tile then
+					table.insert(self.squares, {x = px, y = py, tile = tile})
 				else
 					table.insert(self.squares, {x = px, y = py, tile = 2})
 				end

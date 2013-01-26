@@ -1,4 +1,5 @@
 require 'eventstate'
+require 'pulse'
 
 local playerImage = love.graphics.newImage('graphics/spaceguy.png')
 
@@ -22,13 +23,13 @@ function MapState(mapdata, events)
 			local done = false
 			while not done do
 				g = mapdata[math.random(#mapdata)]
-				if not self:eventAt(g[1], g[2]) then
+				if not self:eventAt(g.x, g.y) then
 					done = true
-					e.x = g[1]
-					e.y = g[2]
+					e.x = g.x
+					e.y = g.y
 				end
 			end
-			local blip = Blip(g[1], g[2], self)
+			local blip = Blip(g.x, g.y, self)
 			self.scene:add(blip)
 			
 			table.insert(self.blips, blip)
@@ -41,10 +42,13 @@ function MapState(mapdata, events)
 		self.ui = Scene()
 		self.map = Map(0, 0, mapdata)
 		self.scene:add(self.map)
+		print('adding events')
 		self:addEvents(events.events)
+		
 		self.camera.x = -love.graphics.getWidth()/2  + (self.player.x*TW) + TW/2
 		self.camera.y = -love.graphics.getHeight()/2 + (self.player.y*TH) + TH/2
 		
+		print('placing avatar')
 		local s = self.map.squares[1]
 		while s.tile ~= 1 do
 			s = self.map.squares[math.random(#self.map.squares)]
@@ -54,54 +58,59 @@ function MapState(mapdata, events)
 		
 		self.cursor = MoveCursor()
 		self.ui:add(self.cursor)
+		
+		self.ui:add(PulseMonitor())
 	end
 	
 	function mapstate:click(mx, my, button)
 		local direction = self.cursor.direction
-      self:movePlayer(direction)
+		self:movePlayer(direction)
 	end
 	
 	function mapstate:declick(mx, my, button)
-      self.move_direction = -1
+		self.move_direction = -1
    end
    
    function mapstate:movePlayer(direction)
-      local player = self.player
+		local player = self.player
 		
 		local px = player.x
 		local py = player.y
       
 		if direction == LEFT then
-         self.move_direction = LEFT
+			self.move_direction = LEFT
 			px = px-1
 		elseif direction == RIGHT then
-         self.move_direction = RIGHT
+			self.move_direction = RIGHT
 			px = px+1
 		elseif direction == UP then
-         self.move_direction = UP
+			self.move_direction = UP
 			py = py-1
 		elseif direction == DOWN then
-         self.move_direction = DOWN
+			self.move_direction = DOWN
 			py = py+1
-      elseif direction == UP_LEFT then
-         self.move_direction = UP_LEFT
-         px = px-1
+		elseif direction == UP_LEFT then
+			self.move_direction = UP_LEFT
+			px = px-1
 			py = py-1
-      elseif direction == UP_RIGHT then
-         self.move_direction = UP_RIGHT
-         px = px+1
+		elseif direction == UP_RIGHT then
+			self.move_direction = UP_RIGHT
+			px = px+1
 			py = py-1
-      elseif direction == DOWN_LEFT then
-         self.move_direction = DOWN_LEFT
-         px = px-1
+		elseif direction == DOWN_LEFT then
+			self.move_direction = DOWN_LEFT
+			px = px-1
 			py = py+1
-      elseif direction == DOWN_RIGHT then
-         self.move_direction = DOWN_RIGHT
-         px = px+1
+		elseif direction == DOWN_RIGHT then
+			self.move_direction = DOWN_RIGHT
+			px = px+1
 			py = py+1
 		end
 		
-		if self:tileAt(px, py) then
+		
+		local tile = self:tileAt(px, py)
+		print(px, py, tile)
+		if tile and tile ~= 2 then
 			player.x = px
 			player.y = py
 		
@@ -138,7 +147,7 @@ function MapState(mapdata, events)
 	
 	function mapstate:tileAt(x, y)
 		for _,e in ipairs(self.mapdata) do
-			if e[1] == x and e[2] == y then
+			if e.x == x and e.y == y then
 				return e
 			end
 		end
