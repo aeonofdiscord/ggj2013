@@ -16,6 +16,10 @@ function EventState(event)
 		self.scene:click(mx, my, button)
 	end
    
+   function eventstate:declick(mx, my, button)
+		self.scene:declick(mx, my, button)
+	end
+   
    function eventstate:addDoneOption()
       local action = function()
          popState()

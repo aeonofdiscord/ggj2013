@@ -12,6 +12,12 @@ function Scene()
 			if e.click then e:click(mx, my, button) end
 		end
 	end
+   
+   function scene:declick(mx, my, button)
+		for _,e in ipairs(self.entities) do
+			if e.declick then e:declick(mx, my, button) end
+		end
+	end
 	
 	function scene:draw()
 		for _,e in ipairs(self.entities) do

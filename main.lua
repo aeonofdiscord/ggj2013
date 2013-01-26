@@ -84,6 +84,10 @@ function love.mousepressed(mx, my, button)
 	state[#state]:click(mx, my, button)
 end
 
+function love.mousereleased(mx, my, button)
+	state[#state]:declick(mx, my, button)
+end
+
 function love.update(dtime)
 	state[#state]:update(dtime)
 end
