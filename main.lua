@@ -12,9 +12,59 @@ sliders = {
 	pragmatic = 0,
 }
 
+function generateMap()
+	local mapdata = {}
+	
+	function tileAt(x, y)
+		for _,t in ipairs(mapdata) do
+			if t[1] == x and t[2] == y then return true end
+		end
+		return false
+	end
+	
+	local count = 0
+	local px = 0
+	local py = 0
+	local dir = math.random(4)
+	local w = 20
+	local h = 20
+	while count < 128 do
+		if math.random() > 0.5 then
+			dir = dir+1
+			if dir > 4 then dir = 1 end
+		else
+			dir = dir-1
+			if dir < 1 then dir = 4 end 
+		end
+		
+		if dir == UP then
+			py = py-1
+		elseif dir == RIGHT then
+			px = px+1
+		elseif dir == DOWN then
+			py = py+1
+		elseif dir == LEFT then
+			px = px-1
+		end
+		
+		if px < -w then px = px+1 end
+		if px > w then px = px-1 end
+		if py < -h then py = py+1 end
+		if py > h then py = py-1 end
+		if not tileAt(px, py) then
+			table.insert(mapdata, {px, py})
+			count = count+1
+		end
+	end
+	
+	return mapdata
+end
+
 function love.load()
-	local f = io.open('data/map.argon')
-	local mapdata = argon.load(f:read('*all'))
+	--local f = io.open('data/map.argon')
+	--local mapdata = argon.load(f:read('*all'))
+	
+	local mapdata = generateMap()
 	local map = Map(0, 0, mapdata)
 	
 	local e = io.open('data/events.argon')

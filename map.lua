@@ -1,6 +1,8 @@
 require 'blip'
 require 'scene'
 
+tileImage = love.graphics.newImage('graphics/tiles.png')
+
 function drawRect(x, y, w, h)
 	love.graphics.rectangle('fill', x, y, w, 1)
 	love.graphics.rectangle('fill', x, y, 1, h)
@@ -16,13 +18,16 @@ function Map(x, y, mapdata)
 	}
 	
 	function map:build()
+		self.tiles = {
+			love.graphics.newQuad(0, 0, 64, 64, tileImage:getWidth(), tileImage:getHeight()),
+			love.graphics.newQuad(64, 0, 64, 64, tileImage:getWidth(), tileImage:getHeight()),
+		}
+	
 		local minX = nil
 		local maxX = nil
 		local minY = nil
 		local maxY = nil
-		for _,s in ipairs(mapdata.grid) do
-			table.insert(self.squares, {x = s[1], y = s[2]})
-			
+		for _,s in ipairs(mapdata) do
 			if minX == nil or s[1] < minX then
 				minX = s[1]
 			end
@@ -37,12 +42,31 @@ function Map(x, y, mapdata)
 			end
 		end
 		self.w = (maxX - minX) * TW
-		self.h = (maxY - minY) * TH		
+		self.h = (maxY - minY) * TH
+		
+		function tileAt(x,y)
+			for _,s in ipairs(mapdata) do
+				if s[1] == x and s[2] == y then return true end
+			end
+		end
+		
+		for py = minY-1, maxY+1 do
+			for px = minX-1, maxX+1 do
+				if tileAt(px, py) then
+					table.insert(self.squares, {x = px, y = py, tile = 1})
+				else
+					table.insert(self.squares, {x = px, y = py, tile = 2})
+				end
+			end
+		end
 	end
 	
 	function map:draw()
 		for _,s in ipairs(self.squares) do
-			drawRect(s.x * TW, s.y * TH, TW, TH)
+			love.graphics.drawq(tileImage, self.tiles[s.tile], s.x * TW, s.y * TH)
+			if s.tile == 1 then	
+				--drawRect(s.x * TW, s.y * TH, TW, TH)
+			end
 		end
 	end
 	
