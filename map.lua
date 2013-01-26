@@ -18,10 +18,10 @@ function Map(x, y, mapdata)
 	}
 	
 	function map:build()
-		self.tiles = {
-			love.graphics.newQuad(0, 0, 64, 64, tileImage:getWidth(), tileImage:getHeight()),
-			love.graphics.newQuad(64, 0, 64, 64, tileImage:getWidth(), tileImage:getHeight()),
-		}
+		self.tiles = {}
+		for i=0, tileImage:getWidth()/64 do
+			table.insert(self.tiles, love.graphics.newQuad(i*64, 0, 64, 64, tileImage:getWidth(), tileImage:getHeight()))
+		end
 	
 		local minX = nil
 		local maxX = nil

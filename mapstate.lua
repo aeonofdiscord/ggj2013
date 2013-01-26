@@ -4,7 +4,6 @@ function MapState(mapdata, events)
 	local mapstate = {
 		x = x,
 		y = y,
-		squares = {},
 		blips = {},
 		blipTimer = 0,
 		player = {x = 0, y = 0},
@@ -41,6 +40,11 @@ function MapState(mapdata, events)
 		self:addEvents(events.events)
 		self.camera.x = -love.graphics.getWidth()/2  + (self.player.x*TW) + TW/2
 		self.camera.y = -love.graphics.getHeight()/2 + (self.player.y*TH) + TH/2
+		
+		local s = self.map.squares[1]
+		while s.tile ~= 1 do
+			s = self.map.squares[math.random(#self.map.squares)]
+		end
 		
 		self.cursor = MoveCursor()
 		self.ui:add(self.cursor)
