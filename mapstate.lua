@@ -74,7 +74,7 @@ function MapState(mapdata, events)
 	end
 	
 	function mapstate:doEvent(event)
-		state = EventState(event)
+		pushState(EventState(event))
 	end
 	
 	function mapstate:draw()

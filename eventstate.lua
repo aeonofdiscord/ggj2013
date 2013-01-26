@@ -17,7 +17,7 @@ function EventState(event)
    
    function eventstate:add_done_option()
       local action = function()
-         --close window
+         popState()
          print("Close event")
       end
       
