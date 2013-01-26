@@ -49,6 +49,8 @@ function MapState(mapdata, events)
 		while s.tile ~= 1 do
 			s = self.map.squares[math.random(#self.map.squares)]
 		end
+		self.player.x = s.x
+		self.player.y = s.y
 		
 		self.cursor = MoveCursor()
 		self.ui:add(self.cursor)

@@ -36,6 +36,7 @@ function EventState(event)
 
 		local image = Image(0, 0, 'graphics/' .. event.image)
 		self.image = image
+		self.image.x = love.graphics.getWidth()/2 - self.image.w/2
 		self.scene:add(image)
 		
 		local py = image.h + 10
