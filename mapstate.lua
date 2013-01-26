@@ -126,9 +126,20 @@ function MapState(mapdata, events)
 			player.y = py
 		
 			local event = self:eventAt(player.x, player.y)
+         local event_key = 0
+         
 			if event then
 				self:doEvent(event)
+            local blip_no = self:blipIdAt(player.x, player.y)
+            local blip = self:blipAt(player.x, player.y)
+            local event_no = self:blipIdAt(player.x, player.y)
+            table.remove(self.blips, blip_no)
+            table.remove(self.events, event_no)
+            self.scene:remove(blip)
 			end
+         
+         table.remove(self.blips, event_key)
+         table.remove(self.events, event_key)
 		end
       
 		for _,e in ipairs(self.blips) do
@@ -161,7 +172,34 @@ function MapState(mapdata, events)
 		end
 		return nil
 	end
-	
+   
+	function mapstate:eventIdAt(x, y)
+		for k,e in ipairs(self.events) do
+			if e.x == x and e.y == y then
+				return k
+			end
+		end
+		return nil
+	end	
+   
+   function mapstate:blipIdAt(x, y)
+		for k,e in ipairs(self.blips) do
+			if e.x == x and e.y == y then
+				return k
+			end
+		end
+		return nil
+	end
+   
+   function mapstate:blipAt(x, y)
+		for _,e in ipairs(self.blips) do
+			if e.x == x and e.y == y then
+				return e
+			end
+		end
+		return nil
+	end	
+   
 	function mapstate:tileAt(x, y)
 		for _,e in ipairs(self.mapdata) do
 			if e.x == x and e.y == y then
