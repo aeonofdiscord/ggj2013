@@ -29,8 +29,12 @@ function MapState(mapdata, events)
 					e.y = g.y
 				end
 			end
-			local blip = Blip(g.x, g.y, self)
+			local blip = Blip(g.x, g.y, self, e.biome)
 			self.scene:add(blip)
+         
+         if e.biome then
+            self.map:overwrite(g.x, g.y, e.biome)
+         end
 			
 			table.insert(self.blips, blip)
 			table.insert(self.events, e)
