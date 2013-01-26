@@ -1,5 +1,7 @@
 require 'eventstate'
 
+local playerImage = love.graphics.newImage('graphics/spaceguy.png')
+
 function MapState(mapdata, events)
 	local mapstate = {
 		x = x,
@@ -99,7 +101,7 @@ function MapState(mapdata, events)
 		
 		self.scene:draw()
 		
-		love.graphics.circle('fill', self.player.x*TW + TW/2, self.player.y*TH + TH/2, TW/4)
+		love.graphics.draw(playerImage, self.player.x*TW, self.player.y*TH)
 		love.graphics.pop()
 		self.ui:draw()
 	end
