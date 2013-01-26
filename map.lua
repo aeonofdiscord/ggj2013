@@ -17,11 +17,18 @@ function Map(x, y, mapdata)
 		squares = {},
 	}
 	
+   function map:tileAt(x,y)
+      for _,s in ipairs(mapdata) do
+         if s.x == x and s.y == y then return s.tile end
+      end
+      return nil
+   end
+   
 	function map:build()
 		print('building map')
 		self.tiles = {}
 		for i=0, tileImage:getWidth()/64 do
-			table.insert(self.tiles, love.graphics.newQuad(i*64, 0, 64, 64, tileImage:getWidth(), tileImage:getHeight()))
+			table.insert(self.tiles, love.graphics.newQuad(i*64,0, 64, 64, tileImage:getWidth(), tileImage:getHeight()))
 		end
 	
 		local minX = nil
@@ -45,16 +52,9 @@ function Map(x, y, mapdata)
 		self.w = (maxX - minX) * TW
 		self.h = (maxY - minY) * TH
 		
-		function tileAt(x,y)
-			for _,s in ipairs(mapdata) do
-				if s.x == x and s.y == y then return s.tile end
-			end
-			return nil
-		end
-		
 		for py = minY-1, maxY+1 do
 			for px = minX-1, maxX+1 do
-				local tile = tileAt(px, py)
+				local tile = self:tileAt(px, py)
 				if tile then
 					table.insert(self.squares, {x = px, y = py, tile = tile})
 				else
@@ -63,11 +63,28 @@ function Map(x, y, mapdata)
 			end
 		end
 	end
+   
+   function map:overwrite(px, py, biome)
+      local tile = nil
+      if biome == "desert" then
+         tile = 2
+      elseif biome == "jungle" then
+         tile = 2
+      elseif biome == "canyon" then
+         tile = 2
+      else
+         return
+      end
+      
+		for _,s in ipairs(self.squares) do
+         if s.x == px and s.y == py then s.tile = tile end
+      end
+   end
 	
 	function map:draw()
 		for _,s in ipairs(self.squares) do
 			love.graphics.drawq(tileImage, self.tiles[s.tile], s.x * TW, s.y * TH)
-			if s.tile == 1 then	
+			if s.tile == 1 then
 				--drawRect(s.x * TW, s.y * TH, TW, TH)
 			end
 		end

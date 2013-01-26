@@ -1,13 +1,15 @@
 require 'constants'
 
-function Blip(x, y, state)
+function Blip(x, y, state, biome)
 	local blip = {
 		x = x,
 		y = y,
-		state = state,
+      biome = biome,
+		state = state
 	}
 	
 	function blip:draw()
+      
 		love.graphics.setLineWidth(3)
 		love.graphics.setBlendMode('additive')
 		local alpha = 0xff * state.blipTimer
