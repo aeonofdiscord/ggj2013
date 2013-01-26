@@ -14,12 +14,24 @@ function EventState(event)
 	function eventstate:click(mx, my, button)
 		self.scene:click(mx, my, button)
 	end
+   
+   function eventstate:add_done_option()
+      local action = function()
+         popState()
+         print("Close event")
+      end
+      
+		local option = Button(0, self.image.h+30, "Done", action)
+		table.insert(self.options, option)
+		self.scene:add(option)
+   end
 	
 	function eventstate:init()
 		self.scene = Scene()
 		self.scene:add(SelectCursor())
 
 		local image = Image(0, 0, 'graphics/' .. event.image)
+      self.image = image
 		self.scene:add(image)
 		
 		local py = image.h
@@ -38,6 +50,7 @@ function EventState(event)
 					sliders[o.modify[1]] = sliders[o.modify[1]] + o.modify[2]
 					print(o.modify[1], sliders[o.modify[1]])
 				end
+            eventstate:add_done_option()
 			end
 			local option = Button(0, py, o.text, action)
 			table.insert(self.options, option)

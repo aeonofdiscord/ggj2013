@@ -70,19 +70,28 @@ function love.load()
 	local e = io.open('data/events.argon')
 	local events = argon.load(e:read("*all"))
 	
-	state = MapState(mapdata, events)
+   state = {}
+	state[1] = MapState(mapdata, events)
 	
 	love.mouse.setVisible(false)
 end
 
 function love.draw()
-	state:draw()
+	state[#state]:draw()
 end
 
 function love.mousepressed(mx, my, button)
-	state:click(mx, my, button)
+	state[#state]:click(mx, my, button)
 end
 
 function love.update(dtime)
-	state:update(dtime)
+	state[#state]:update(dtime)
+end
+
+function pushState(new_state)
+   table.insert(state, new_state)
+end
+
+function popState()
+   table.remove(state)
 end
