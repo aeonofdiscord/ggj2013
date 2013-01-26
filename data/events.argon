@@ -1,0 +1,17 @@
+{
+	events: [
+		{
+			x: 1,
+			y: 0,
+			image: "blah.png",
+			text: "You see a wibbly thing.",
+			options: [
+				{
+					text: "Poke it.",
+					result: "It wibbles menacingly.",
+					modify: ["aggressive", 1],
+				},
+			],
+		},
+	]
+}
