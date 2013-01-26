@@ -10,6 +10,7 @@
 			]
 		},
 		{
+			biome: "desert",
 			image: "ears.png",
 			text: "Amidst a bank of thick fog and curious plant life, you come across a small area conspicuously devoid of flora. Set in the ground of this miniature clearing are a number of mounds of upturned earth. Just as you begin to ponder the situation, one of the hills erupts in a shower of saturated dirt and pebbles. When the dust settles there is small, hairless creature sat astride the newly burrowed hole. Regarding you with small, beady eyes, it raises itself onto its haunches and nervously flicks its disproportionately enormous ears towards its other surroundings.",
 			options: [
@@ -19,6 +20,7 @@
 			]
 		},
 		{
+			biome: "jungle",
 			image: "blah.png",
 			text: "A dense patch of foliage sits before you; bare trunks reach toward the arid sky before exploding outwards into broad, far-reaching leaves; deep violet or indigo in color, like much of the vegetation in this strange land. A clear pathway cuts directly through the center of the forest, disappearing into and over the visible horizon.",
 			options: [
@@ -28,6 +30,7 @@
 			]
 		},
 		{
+			biome: "jungle",
 			image: "blah.png",
 			text: "As you venture deeper into the woodland, the canopy finally becomes thick enough to provide some respite from the merciless assault of the sun. Just as the sensation of finally being out of the direct light sets in, you notice a strange looking growth protruding from one of the low-hanging tree branches ahead. It seems to be some kind of fruit, but on closer inspection it appears foreign and warped, its edges ridged with gnarled thorns; some manner of thick, brown fluid appears to be leaking from its centre.",
 			options: [
@@ -85,7 +88,6 @@
 		{
 			image: "blah.png",
 			text: "As the vindictive sun reaches its apex, the midday heat becomes almost unbearable; a miasma of never-ending heat clawing its way through your system. A short way ahead you can just make out an opening in the landscape through the swells of dust. Proceeding toward the opening, you peer into the blackness: there seems to be a soft azure light emanating from towards the rear of the cave, its source just out of sight behind a turn in the underground path.",
-			
 			options: [
 				{ text: "Set up a small camp in the entrance of the cave and rest for a while.", modify: ["pragmatism", 1] },
 				{ text: "Avoid the hollow completely and move on with your travels.", modify: ["paranoia", 1] },

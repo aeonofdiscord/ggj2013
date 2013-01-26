@@ -3,7 +3,7 @@ function Text(x, y, text)
 		x = x,
 		y = y,
 		text = text,
-		font = love.graphics.newFont(14)
+		font = love.graphics.newFont(18)
 	}
 	t.h = t.font:getHeight()
 	t.w = t.font:getWidth(text)

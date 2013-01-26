@@ -29,8 +29,13 @@ function MapState(mapdata, events)
 					e.y = g.y
 				end
 			end
-			local blip = Blip(g.x, g.y, self)
+			local blip = Blip(g.x, g.y, self, e.biome, e.slider)
+         blip:testConditions()
 			self.scene:add(blip)
+         
+         if e.biome then
+            self.map:overwrite(g.x, g.y, e.biome)
+         end
 			
 			table.insert(self.blips, blip)
 			table.insert(self.events, e)
@@ -125,6 +130,10 @@ function MapState(mapdata, events)
 				self:doEvent(event)
 			end
 		end
+      
+		for _,e in ipairs(self.blips) do
+         e:testConditions()
+      end
    end
    
 	function mapstate:doEvent(event)
@@ -168,8 +177,8 @@ function MapState(mapdata, events)
 			self.loaded = true
 		end
 		
-		self.blipTimer = self.blipTimer - dtime
-		if self.blipTimer <= -2 then
+		self.blipTimer = self.blipTimer - dtime/2
+		if self.blipTimer <= -0.1 then
 			self.blipTimer = 1
 		end
 		self.scene:update(dtime)

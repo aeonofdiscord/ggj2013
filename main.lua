@@ -12,6 +12,9 @@ sliders = {
 	pragmatism = 0,
 }
 
+flags = {
+}
+
 biomonitor = {
 	pulse = 0.15,
 	o2 = 1.0
@@ -100,6 +103,10 @@ end
 
 function love.draw()
 	state[#state]:draw()
+end
+
+function love.keypressed(key)
+	love.event.push('q')
 end
 
 function love.mousepressed(mx, my, button)

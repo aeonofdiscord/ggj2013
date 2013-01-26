@@ -1,13 +1,20 @@
 require 'constants'
 
-function Blip(x, y, state)
+function Blip(x, y, state, biome, slider)
 	local blip = {
 		x = x,
 		y = y,
+		biome = biome,
 		state = state,
+		condition_slider = slider,
+		active = false
 	}
 	
 	function blip:draw()
+		if active == false then 
+			return
+		end
+      
 		love.graphics.setLineWidth(3)
 		love.graphics.setBlendMode('additive')
 		local alpha = 0xff * state.blipTimer
@@ -19,6 +26,16 @@ function Blip(x, y, state)
 		love.graphics.setColor({0xff, 0xff, 0xff, 0xff})
 		love.graphics.setBlendMode('alpha')
 	end
+   
+   function blip:testConditions()
+		if self.condition_slider then
+			if(sliders[self.condition_slider.type] < self.condition_slider.amount) then
+            self.active = false
+            return
+         end
+      end
+      self.active = true
+   end
 	
 	return blip
 end
