@@ -29,16 +29,16 @@ function MoveCursor()
       local dz_low = 0.45
       local dz_high = 0.55
 		
-      if self.x < love.graphics.getWidth() * dz_low and self.y < love.graphics.getHeight() * dz_low then
+      if self.x < love.graphics.getWidth() * dz_low - 32 and self.y < love.graphics.getHeight() * dz_low - 32 then
          self.image = CURSOR_UP_LEFT
          self.direction = UP_LEFT
-      elseif self.x < love.graphics.getWidth() * dz_low and self.y > love.graphics.getHeight() * dz_high - 16 then
+      elseif self.x < love.graphics.getWidth() * dz_low - 32 and self.y > love.graphics.getHeight() * dz_high - 16 + 32 then
          self.image = CURSOR_DOWN_LEFT
          self.direction = DOWN_LEFT
-      elseif self.x > love.graphics.getWidth() * dz_high - 16 and self.y < love.graphics.getHeight() * dz_low then
+      elseif self.x > love.graphics.getWidth() * dz_high - 16 + 32 and self.y < love.graphics.getHeight() * dz_low - 32 then
          self.image = CURSOR_UP_RIGHT
          self.direction = UP_RIGHT
-      elseif self.x > love.graphics.getWidth() * dz_high  - 16 and self.y > love.graphics.getHeight() * dz_high - 16 then
+      elseif self.x > love.graphics.getWidth() * dz_high  - 16 + 32 and self.y > love.graphics.getHeight() * dz_high - 16 + 32 then
          self.image = CURSOR_DOWN_RIGHT
          self.direction = DOWN_RIGHT
 		elseif self.x < love.graphics.getWidth() * dz_low then
