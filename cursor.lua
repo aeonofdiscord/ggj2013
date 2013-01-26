@@ -26,33 +26,33 @@ function MoveCursor()
 		self.x = love.mouse.getX()
 		self.y = love.mouse.getY()
       
-      local dz_low = 0.45
-      local dz_high = 0.55
-		
-      if self.x < love.graphics.getWidth() * dz_low - 32 and self.y < love.graphics.getHeight() * dz_low - 32 then
-         self.image = CURSOR_UP_LEFT
-         self.direction = UP_LEFT
-      elseif self.x < love.graphics.getWidth() * dz_low - 32 and self.y > love.graphics.getHeight() * dz_high - 16 + 32 then
-         self.image = CURSOR_DOWN_LEFT
-         self.direction = DOWN_LEFT
-      elseif self.x > love.graphics.getWidth() * dz_high - 16 + 32 and self.y < love.graphics.getHeight() * dz_low - 32 then
-         self.image = CURSOR_UP_RIGHT
-         self.direction = UP_RIGHT
-      elseif self.x > love.graphics.getWidth() * dz_high  - 16 + 32 and self.y > love.graphics.getHeight() * dz_high - 16 + 32 then
-         self.image = CURSOR_DOWN_RIGHT
-         self.direction = DOWN_RIGHT
-		elseif self.x < love.graphics.getWidth() * dz_low then
-			self.image = CURSOR_LEFT
-			self.direction = LEFT
-		elseif self.x > love.graphics.getWidth() * dz_high - 16 then
-			self.image = CURSOR_RIGHT
-			self.direction = RIGHT
-		elseif self.y < love.graphics.getHeight() * dz_low then
+      local angle = math.deg(math.atan2(self.y - love.graphics.getHeight()/2, self.x - love.graphics.getWidth()/2)) + 90
+      if angle < 0 then angle = angle + 360 end
+      
+      if angle >= 337.5 or angle < 22.5 then
 			self.image = CURSOR_UP
 			self.direction = UP
-		elseif self.y > love.graphics.getHeight() * dz_high - 16 then
+      elseif angle >= 22.5 and angle < 67.5 then
+         self.image = CURSOR_UP_RIGHT
+         self.direction = UP_RIGHT
+      elseif angle >= 67.5 and angle < 112.5 then
+			self.image = CURSOR_RIGHT
+			self.direction = RIGHT   
+      elseif angle >= 112.5 and angle < 157.5 then
+         self.image = CURSOR_DOWN_RIGHT
+         self.direction = DOWN_RIGHT
+      elseif angle >= 157.5 and angle < 202.5 then
 			self.image = CURSOR_DOWN
 			self.direction = DOWN
+      elseif angle >= 202.5 and angle < 247.5 then
+         self.image = CURSOR_DOWN_LEFT
+         self.direction = DOWN_LEFT
+      elseif angle >= 247.5 and angle < 292.5 then
+			self.image = CURSOR_LEFT
+			self.direction = LEFT
+      elseif angle >= 292.5 and angle < 337.5 then
+         self.image = CURSOR_UP_LEFT
+         self.direction = UP_LEFT
 		else
 			self.image = CURSOR_SELECT
 			self.direction = nil
