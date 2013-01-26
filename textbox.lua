@@ -5,6 +5,10 @@ function TextBox(x, y, text)
 		text = text,
 		lines = {}	
 	}
+
+	function textbox:init()
+		local line = ''
+	end
 	
 	function textbox:draw()
 		for _,l in ipairs(self.lines) do

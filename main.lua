@@ -5,11 +5,11 @@ require 'mapstate'
 require 'text'
 
 sliders = {
-	paranoid = 0,
-	aggressive = 0,
-	curious = 0,
-	empathic = 0,
-	pragmatic = 0,
+	paranoia = 0,
+	aggression = 0,
+	curiosity = 0,
+	empathy = 0,
+	pragmatism = 0,
 }
 
 function generateMap()

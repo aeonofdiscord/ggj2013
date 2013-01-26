@@ -13,19 +13,21 @@ function Rect(x, y, w, h)
 	return rect
 end
 
-function Button(x, y, text, action)
+function Button(x, y, w, h, text, action)
 	if not action then action = function() end end
 	
 	local button = {
 		x = x,	
 		y = y,
-		w = 100,
-		h = 30,
+		w = w,
+		h = h,
 		text = Text(x, y, text),
 		action = action
 	}
+	if button.w < button.text.w + 10 then button.w = button.text.w + 10 end
 	button.text.x = button.x + button.w/2 - button.text.w/2
 	button.text.y = button.y + button.h/2 - button.text.h/2
+	
 	
 	function button:click(mx, my, mbutton)
 		if self.highlighted and self:rect():contains(mx, my) then
