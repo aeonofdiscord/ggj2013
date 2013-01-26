@@ -64,6 +64,18 @@ function MapState(mapdata, events)
 			py = py-1
 		elseif direction == DOWN then
 			py = py+1
+      elseif direction == UP_LEFT then
+         px = px-1
+			py = py-1
+      elseif direction == UP_RIGHT then
+         px = px+1
+			py = py-1
+      elseif direction == DOWN_LEFT then
+         px = px-1
+			py = py+1
+      elseif direction == DOWN_RIGHT then
+         px = px+1
+			py = py+1
 		end
 		
 		if self:tileAt(px, py) then
