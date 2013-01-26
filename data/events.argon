@@ -106,5 +106,16 @@
 				{ text: "Travel to the rear of the cave to try and discover the source of the glow.", modify: ["curiosity", 1] },
 			],
 		},
+      {
+			image: "blah.png",
+			text: "Wibblywoo",
+         slider:{type:"pragmatism", amount:1},
+			
+			options: [
+				{ text: "No.", modify: ["pragmatism", 1] },
+				{ text: "Yes.", modify: ["paranoia", 1] },
+				{ text: "I'll take 6, please.", modify: ["curiosity", 1] },
+			],
+		},
 	]
 }

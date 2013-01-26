@@ -29,7 +29,8 @@ function MapState(mapdata, events)
 					e.y = g.y
 				end
 			end
-			local blip = Blip(g.x, g.y, self, e.biome)
+			local blip = Blip(g.x, g.y, self, e.biome, e.slider)
+         blip:testConditions()
 			self.scene:add(blip)
          
          if e.biome then
@@ -123,6 +124,10 @@ function MapState(mapdata, events)
 				self:doEvent(event)
 			end
 		end
+      
+		for _,e in ipairs(self.blips) do
+         e:testConditions()
+      end
    end
    
 	function mapstate:doEvent(event)

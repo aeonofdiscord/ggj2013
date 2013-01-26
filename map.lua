@@ -67,9 +67,9 @@ function Map(x, y, mapdata)
    function map:overwrite(px, py, biome)
       local tile = nil
       if biome == "desert" then
-         tile = 2
+         tile = 3
       elseif biome == "jungle" then
-         tile = 2
+         tile = 4
       elseif biome == "canyon" then
          tile = 2
       else
