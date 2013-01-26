@@ -1,5 +1,6 @@
 require 'button'
 require 'image'
+require 'textbox'
 
 function EventState(event)
 	local eventstate = {
@@ -18,10 +19,9 @@ function EventState(event)
    function eventstate:addDoneOption()
       local action = function()
          popState()
-         print("Close event")
       end
       
-		local option = Button(0, self.image.h+30, 100, 30, "Done", action)
+		local option = Button(40, self.image.h+10+self.text.h+10, 100, 30, "Done", action)
 		table.insert(self.options, option)
 		self.scene:add(option)
    end
@@ -34,12 +34,13 @@ function EventState(event)
 		self.image = image
 		self.scene:add(image)
 		
-		local py = image.h
+		local py = image.h + 10
 		
-		self.text = TextBox(0, py, event.text)
+		self.text = TextBox(10, py, event.text)
 		self.scene:add(self.text)
 		
-		py = py + self.text.h
+		py = py + self.text.h + 10
+		
 		for _,o in ipairs(event.options) do
 			local action = function()
 				eventstate:clearOptions()		
@@ -48,7 +49,7 @@ function EventState(event)
 					sliders[o.modify[1]] = sliders[o.modify[1]] + o.modify[2]
 				end
 				if o.result then
-					self.text = TextBox(0, image.h, o.result)
+					self.text = TextBox(10, image.h + 10, o.result)
 					self.scene:add(self.text)
 					eventstate:addDoneOption()
 				else
