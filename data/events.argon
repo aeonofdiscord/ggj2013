@@ -1,7 +1,7 @@
 {
 	events: [
 		{
-			image: "blah.png",
+			image: "foliage.png",
 			text: "Dense mists swirl around you and the surrounding plant life; a collection of red and purple stemmed shrubs and bushes. After walking for a short while through the unearthly vegetation, your attention is suddenly drawn towards the sound of shuffling leaves. There appears to be some activity among the shrubbery ahead. The waist-height leaves and buds effectively obscuring the ground from this distance, the plant stalks continue to bend and rustle.",
 			options: [
 				{ text: "Sprint away from the noise as quickly as your feet will carry you.",  modify: ["paranoia", 1] },
