@@ -13,11 +13,16 @@ sliders = {
 }
 
 flags = {
+   PARANOIA_ENDING = false,
+   AGGRESSION_ENDING = false,
+   CURIOUS_ENDING = false,
+   EMPATHIC_ENDING = false,
+   PRAGMATIC_ENDING = true,
 }
 
 biomonitor = {
 	pulse = 0.15,
-	o2 = 1.0
+	o2 = 1.0,
 }
 
 function generateMap()

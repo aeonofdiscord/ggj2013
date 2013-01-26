@@ -1,12 +1,13 @@
 require 'constants'
 
-function Blip(x, y, state, biome, slider)
+function Blip(x, y, state, biome, slider, flag)
 	local blip = {
 		x = x,
 		y = y,
       biome = biome,
 		state = state,
       condition_slider = slider,
+      condition_flag = flag,
       active = false
 	}
 	
@@ -28,13 +29,25 @@ function Blip(x, y, state, biome, slider)
 	end
    
    function blip:testConditions()
-      print(self.active)
       if self.condition_slider then
          if(sliders[self.condition_slider.type] < self.condition_slider.amount) then
             self.active = false
             return
          end
       end
+      
+      if self.condition_flag then
+         if self.condition_flag == "PRAGMATIC_ENDING" then
+            if(flags[self.condition_flag] == true) then
+               print("JA")
+            end
+         end
+         if(flags[self.condition_flag] == false) then
+            self.active = false
+            return
+         end
+      end
+      
       self.active = true
    end
 	

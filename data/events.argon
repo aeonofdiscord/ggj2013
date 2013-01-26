@@ -110,6 +110,7 @@
 			image: "blah.png",
 			text: "Wibblywoo",
          slider:{type:"pragmatism", amount:1},
+         flag:"PRAGMATIC_ENDING",
 			
 			options: [
 				{ text: "No.", modify: ["pragmatism", 1] },
