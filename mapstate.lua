@@ -9,7 +9,9 @@ function MapState(mapdata, events)
 		player = {x = 0, y = 0},
 		events = {},
 		camera = {x = 0, y = 0},
-		mapdata = mapdata
+		mapdata = mapdata,
+      move_direction = -1,
+      move_timer = 0
 	}
 	
 	function mapstate:addEvents(events)
@@ -52,28 +54,45 @@ function MapState(mapdata, events)
 	
 	function mapstate:click(mx, my, button)
 		local direction = self.cursor.direction
-		local player = self.player
+      self:movePlayer(direction)
+	end
+	
+	function mapstate:declick(mx, my, button)
+      self.move_direction = -1
+   end
+   
+   function mapstate:movePlayer(direction)
+      local player = self.player
 		
 		local px = player.x
 		local py = player.y
+      
 		if direction == LEFT then
+         self.move_direction = LEFT
 			px = px-1
 		elseif direction == RIGHT then
+         self.move_direction = RIGHT
 			px = px+1
 		elseif direction == UP then
+         self.move_direction = UP
 			py = py-1
 		elseif direction == DOWN then
+         self.move_direction = DOWN
 			py = py+1
       elseif direction == UP_LEFT then
+         self.move_direction = UP_LEFT
          px = px-1
 			py = py-1
       elseif direction == UP_RIGHT then
+         self.move_direction = UP_RIGHT
          px = px+1
 			py = py-1
       elseif direction == DOWN_LEFT then
+         self.move_direction = DOWN_LEFT
          px = px-1
 			py = py+1
       elseif direction == DOWN_RIGHT then
+         self.move_direction = DOWN_RIGHT
          px = px+1
 			py = py+1
 		end
@@ -87,8 +106,8 @@ function MapState(mapdata, events)
 				self:doEvent(event)
 			end
 		end
-	end
-	
+   end
+   
 	function mapstate:doEvent(event)
 		pushState(EventState(event))
 	end
@@ -129,10 +148,25 @@ function MapState(mapdata, events)
 		end
 		self.scene:update(dtime)
 		self.ui:update(dtime)
+      
+      if self.move_direction ~= -1 then
+         self.move_timer = self.move_timer + dtime
+      else
+         self.move_timer = 0
+      end
+      
+      if self.move_timer > 0.3 then
+         if self.move_timer > 0.5 then
+            self:movePlayer(self.cursor.direction)
+            self.move_timer = 0.3
+         end
+      end
 		
 		self.camera.x = -love.graphics.getWidth()/2  + (TW*self.player.x) + TW/2
 		self.camera.y = -love.graphics.getHeight()/2 + (TH*self.player.y) + TH/2
+      
 	end
+   
 	
 	mapstate:init()
 	return mapstate
