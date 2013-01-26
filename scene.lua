@@ -7,6 +7,10 @@ function Scene()
 		table.insert(self.entities, e)
 	end
 	
+	function scene:clear()
+		self.entities = {}
+	end
+	
 	function scene:click(mx, my, button)
 		for _,e in ipairs(self.entities) do
 			if e.click then e:click(mx, my, button) end

@@ -37,16 +37,15 @@ function MapState(mapdata, events)
 		end
 	end
 	
-	function mapstate:init()
-		self.scene = Scene()
-		self.ui = Scene()
+	function mapstate:load()
+		self.ui:clear()
 		self.map = Map(0, 0, mapdata)
 		self.scene:add(self.map)
 		print('adding events')
 		self:addEvents(events.events)
 		
-		self.camera.x = -love.graphics.getWidth()/2  + (self.player.x*TW) + TW/2
-		self.camera.y = -love.graphics.getHeight()/2 + (self.player.y*TH) + TH/2
+		self.camera.x = -love.graphics.getWidth()/2  + (self.player.x*TW)
+		self.camera.y = -love.graphics.getHeight()/2 + (self.player.y*TH)
 		
 		print('placing avatar')
 		local s = self.map.squares[1]
@@ -62,9 +61,17 @@ function MapState(mapdata, events)
 		self.ui:add(PulseMonitor())
 	end
 	
+	function mapstate:init()
+		self.scene = Scene()
+		self.ui = Scene()
+		
+		self.ui:add(Text(0, 0, 'Loading'))
+	end
+	
 	function mapstate:click(mx, my, button)
 		local direction = self.cursor.direction
 		self:movePlayer(direction)
+		print(mx, my)
 	end
 	
 	function mapstate:declick(mx, my, button)
@@ -109,7 +116,6 @@ function MapState(mapdata, events)
 		
 		
 		local tile = self:tileAt(px, py)
-		print(px, py, tile)
 		if tile and tile ~= 2 then
 			player.x = px
 			player.y = py
@@ -125,7 +131,7 @@ function MapState(mapdata, events)
 		pushState(EventState(event))
 	end
 	
-	function mapstate:draw()		
+	function mapstate:draw()	
 		love.graphics.setBackgroundColor(0xcc, 0xb3, 0x8d)
 		
 		love.graphics.push()
@@ -157,6 +163,11 @@ function MapState(mapdata, events)
 	end
 	
 	function mapstate:update(dtime)
+		if not self.loaded then
+			self:load()
+			self.loaded = true
+		end
+		
 		self.blipTimer = self.blipTimer - dtime
 		if self.blipTimer <= -2 then
 			self.blipTimer = 1
@@ -177,9 +188,7 @@ function MapState(mapdata, events)
 		
 		self.camera.x = -love.graphics.getWidth()/2  + (TW*self.player.x) + TW/2
 		self.camera.y = -love.graphics.getHeight()/2 + (TH*self.player.y) + TH/2
-      
 	end
-   
 	
 	mapstate:init()
 	return mapstate
