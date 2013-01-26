@@ -1,5 +1,6 @@
 require 'eventstate'
 require 'pulse'
+require 'oxygen'
 
 local playerImage = love.graphics.newImage('graphics/spaceguy.png')
 
@@ -65,6 +66,7 @@ function MapState(mapdata, events)
 		self.ui:add(self.cursor)
 		
 		self.ui:add(PulseMonitor())
+      self.ui:add(OxygenMonitor())
 	end
 	
 	function mapstate:click(mx, my, button)

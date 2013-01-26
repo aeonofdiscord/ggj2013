@@ -37,11 +37,6 @@ function Blip(x, y, state, biome, slider, flag)
       end
       
       if self.condition_flag then
-         if self.condition_flag == "PRAGMATIC_ENDING" then
-            if(flags[self.condition_flag] == true) then
-               print("JA")
-            end
-         end
          if(flags[self.condition_flag] == false) then
             self.active = false
             return
