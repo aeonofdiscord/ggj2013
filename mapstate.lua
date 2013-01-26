@@ -28,8 +28,8 @@ function MapState(mapdata, events)
 		self.map = Map(0, 0, mapdata)
 		self.scene:add(self.map)
 		self:addEvents(events.events)
-		self.camera.x = -love.graphics.getWidth()/2  + self.map.w/2
-		self.camera.y = -love.graphics.getHeight()/2 + self.map.h/2
+		self.camera.x = -love.graphics.getWidth()/2  + (self.player.x*TW) + TW/2
+		self.camera.y = -love.graphics.getHeight()/2 + (self.player.y*TH) + TH/2
 		
 		self.cursor = MoveCursor()
 		self.ui:add(self.cursor)
@@ -86,6 +86,9 @@ function MapState(mapdata, events)
 		end
 		self.scene:update(dtime)
 		self.ui:update(dtime)
+		
+		self.camera.x = -love.graphics.getWidth()/2  + (TW*self.player.x) + TW/2
+		self.camera.y = -love.graphics.getHeight()/2 + (TH*self.player.y) + TH/2
 	end
 	
 	mapstate:init()
