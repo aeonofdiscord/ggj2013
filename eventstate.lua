@@ -66,6 +66,8 @@ function EventState(event)
 			self.scene:add(option)
 			py = py + 40
 		end
+		
+		love.graphics.setBackgroundColor(0, 0, 0)
 	end
 	
 	function eventstate:clearOptions()

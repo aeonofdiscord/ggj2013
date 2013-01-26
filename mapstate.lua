@@ -13,8 +13,8 @@ function MapState(mapdata, events)
 		events = {},
 		camera = {x = 0, y = 0},
 		mapdata = mapdata,
-      move_direction = -1,
-      move_timer = 0
+		move_direction = -1,
+		move_timer = 0
 	}
 	
 	function mapstate:addEvents(events)
@@ -129,7 +129,9 @@ function MapState(mapdata, events)
 		pushState(EventState(event))
 	end
 	
-	function mapstate:draw()
+	function mapstate:draw()		
+		love.graphics.setBackgroundColor(0xcc, 0xb3, 0x8d)
+		
 		love.graphics.push()
 		love.graphics.translate(-self.camera.x, -self.camera.y)
 		
