@@ -1,4 +1,4 @@
-local LINE_MAX = 110
+local LINE_MAX = 140
 
 function TextBox(x, y, text)
 	local textbox = {
