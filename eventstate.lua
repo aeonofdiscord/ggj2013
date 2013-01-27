@@ -23,11 +23,12 @@ function EventState(event)
    function eventstate:addDoneOption(trigger)
       local action = function()
          popState()
-         
-         if self.trigger then
-            for _,e in state[1].events do
-               if self.trigger == e.condition_flag then
-                  pushState(EventState(e))
+         print(trigger)
+         if trigger then
+            for _,e in ipairs(state[2].blips) do
+               print(e.condition_flag)
+               if trigger == e.condition_flag then
+                  pushState(EventState(e.event))
                end
             end
          end

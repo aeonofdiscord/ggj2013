@@ -30,7 +30,8 @@ function MapState(mapdata, events)
 					e.y = g.y
 				end
 			end
-			local blip = Blip(g.x, g.y, self, e.biome, e.slider, e.flag, e.trigger)
+			local blip = Blip(g.x, g.y, self, e.biome, e.slider, e.flag)
+         blip.event = e
          blip:testConditions()
          e.blip = blip
 			self.scene:add(blip)

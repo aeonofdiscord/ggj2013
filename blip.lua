@@ -1,6 +1,6 @@
 require 'constants'
 
-function Blip(x, y, state, biome, slider, flag, trigger)
+function Blip(x, y, state, biome, slider, flag)
 	local blip = {
 		x = x,
 		y = y,
@@ -8,7 +8,6 @@ function Blip(x, y, state, biome, slider, flag, trigger)
 		state = state,
 		condition_slider = slider,
 		condition_flag = flag,
-      condition_trigger = trigger,
 		active = false,
 	}
 	
