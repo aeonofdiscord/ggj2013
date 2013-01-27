@@ -53,9 +53,9 @@
 			image: "desert.png",
 			text: "Stumbling amidst the shifting sand dunes, the debilitating heat reflecting off the horizon in a vast haze, seemingly miles high - you notice a dark spot in the distance. For just a second it appears to take the shape of a man, distorted by the shimmering dunes; your eyes refuse to focus on the figure for more than a second as it continues to twitch and dance just beyond perception.",
 			options: [
-				{ text: "Take cover behind the nearest dune crest and disguise yourself as best you can.", modify: ["paranoia", 1] },
-				{ text: "Make your way toward the figure.", modify: ["empathy", 1] },
-				{ text: "Stand your ground and observe the figure for a while.", modify: ["curiosity", 1] },
+				{ text: "Take cover behind the nearest dune crest and disguise yourself as best you can.", modify: ["paranoia", 1], result:"You quickly take cover and wait, hoping you have not been seen. After a moment you peer over the crest of the dune to check on the figure’s location. Your heart jumps as you look over to see the figure standing stock still, and you quickly duck back down. Despite being unable to see even the smallest detail, you are somehow sure that they were staring back at you. You cautiously move along under cover of the dune, hoping to lose the figure’s gaze. However, when you steal another glace after repositioning, only a few minutes later, the figure is already gone."},
+				{ text: "Make your way toward the figure.", modify: ["empathy", 1], result:"On seeing what appears to be another human figure, you quickly strike out across the sand dunes in their direction. Ahead, the figure remains periodically visible in the dazzling sunlight. You wave your arms, trying to get their attention, but it seems to go unnoticed. As you draw closer, you realize why:  the figure is simply a strangely shaped rock formation standing out against the smooth face of the sand dunes. Slightly disheartened, you carry on your journey."},
+				{ text: "Stand your ground and observe the figure for a while.", modify: ["curiosity", 1], result:"Observing the figure for a time quickly reveals that the figure is not a living creature – mostly like a rock, the illusion of movement created by the sun shimmering across the dunes. Still, it strikes you as worth a closer look. You cross the dunes and make your way to the rock, which juts out of the side of the dune at a slight angle. On closer inspection you notice some slight carvings in the stone – perhaps lettering – however the blasting sand of the dunes has rendered in indecipherable. Unable to read the stone, you ponder what its purposes could be as you resume travelling."},
 			]
 		},
 		{
@@ -80,9 +80,9 @@
 			image: "foliage.png",
 			text: "The intense heat shows few signs of letting up as your equipment begins to indicate that the stock of water you brought with you is running low. Fortunately there appears to be a series of small, clear rivulets nestled amongst the hills ahead. Approaching the formations all indications point to their contents being water, and of sufficient purity for drinking.",
 			options: [
-				{ text: "Take a quick drink from the pools and refill your supply.", modify: ["curiosity", 1] },
-				{ text: "Fill a portable canteen with some of the fluid in case of emergency.", modify: ["pragmatism", 1] },
-				{ text: "Leave the waters alone and continue on your way.", modify: ["paranoia", 1] },  
+				{ text: "Take a quick drink from the pools and refill your supply.", modify: ["curiosity", 1], result:"The water here has a slightly bitter, acrid taste. It does quench your thirst however, and you are able to fully refill your water supplies." },
+				{ text: "Fill a portable canteen with some of the fluid in case of emergency.", modify: ["pragmatism", 1], result:"You refill an empty flask from the water at the spring, taking care to separate it from your main water supplies. This way you can have some extra water for an emergency, without the risk of any contaminants getting into your regular drinking water. Once you are done here you move on."},
+				{ text: "Leave the waters alone and continue on your way.", modify: ["paranoia", 1], result:"The idea of drinking anything you found in this place makes you feel slightly ill. You decided to play it safe and leave the pool alone, assuming it could hold only nasty surprises."},  
 			]
 		},
 		{
