@@ -1,6 +1,6 @@
 require 'constants'
 
-function Blip(x, y, state, biome, slider, flag)
+function Blip(x, y, state, biome, slider, flag, trigger)
 	local blip = {
 		x = x,
 		y = y,
@@ -8,11 +8,12 @@ function Blip(x, y, state, biome, slider, flag)
 		state = state,
 		condition_slider = slider,
 		condition_flag = flag,
+      condition_trigger = trigger,
 		active = false,
 	}
 	
 	function blip:draw()
-		if active == false then 
+		if self.active == false then 
 			return
 		end
       
@@ -37,10 +38,12 @@ function Blip(x, y, state, biome, slider, flag)
 		end
       
       if self.condition_flag then
-         if(flags[self.condition_flag] == false) then
+         --[[if(flags[self.condition_flag] == false) then
             self.active = false
             return
-         end
+         end]]
+         self.active = false
+         return
       end
         
       self.active = true

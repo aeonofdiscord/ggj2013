@@ -13,11 +13,16 @@ sliders = {
 }
 
 flags = {
-   PARANOIA_ENDING = false,
-   AGGRESSION_ENDING = false,
-   CURIOUS_ENDING = false,
-   EMPATHIC_ENDING = false,
-   PRAGMATIC_ENDING = true,
+   PARANOIA_ENDING_1 = false,
+   AGGRESSION_ENDING_1 = false,
+   CURIOUS_ENDING_1 = false,
+   EMPATHIC_ENDING_1 = false,
+   PRAGMATIC_ENDING_1 = false,
+   PARANOIA_ENDING_2 = false,
+   AGGRESSION_ENDING_2 = false,
+   CURIOUS_ENDING_2 = false,
+   EMPATHIC_ENDING_2 = false,
+   PRAGMATIC_ENDING_2 = false,
 }
 
 biomonitor = {
