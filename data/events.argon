@@ -21,7 +21,7 @@
 		},
 		{
 			biome: "jungle",
-			image: "blah.png",
+			image: "foliage.png",
 			text: "A dense patch of foliage sits before you; bare trunks reach toward the arid sky before exploding outwards into broad, far-reaching leaves; deep violet or indigo in color, like much of the vegetation in this strange land. A clear pathway cuts directly through the center of the forest, disappearing into and over the visible horizon.",
 			options: [
 				{ text: "Venture off the beaten track and examine these strange surroundings more closely.", modify: ["curiosity", 1] },
@@ -31,7 +31,7 @@
 		},
 		{
 			biome: "jungle",
-			image: "blah.png",
+			image: "foliage.png",
 			text: "As you venture deeper into the woodland, the canopy finally becomes thick enough to provide some respite from the merciless assault of the sun. Just as the sensation of finally being out of the direct light sets in, you notice a strange looking growth protruding from one of the low-hanging tree branches ahead. It seems to be some kind of fruit, but on closer inspection it appears foreign and warped, its edges ridged with gnarled thorns; some manner of thick, brown fluid appears to be leaking from its centre.",
 			options: [
 				{ text: "Ignore the strange plant and continue onwards.", modify: ["pragmatism", 1] },
@@ -40,7 +40,7 @@
 		},
 		{
 			biome: "canyon",
-			image: "blah.png",
+			image: "canyon.png",
 			text: "As you press forward the pathway seems to narrow; the canyon walls now looming far overhead and the thick canopy causing your vision of the path to become murky and obscured; until you finally come to what appears to be the end of the canyon. As you begin to turn back however, movement in the periphery of your vision pulls your attention, staring for a few moments it becomes clear that the blockage is in fact moving. As your eyes fully adjust to the shadows you can make out a mass of vegetative tendrils; thick with briarthorn and meshed tightly together; it shudders and quakes as it blocks your progress forward.",
 			options: [
 				{ text: "Proceed toward the obstruction.", modify: ["empathy", 1]},
@@ -50,7 +50,7 @@
 		},
 		{
 			biome: "desert",
-			image: "blah.png",
+			image: "desert.png",
 			text: "Stumbling amidst the shifting sand dunes, the debilitating heat reflecting off the horizon in a vast haze, seemingly miles high - you notice a dark spot in the distance. For just a second it appears to take the shape of a man, distorted by the shimmering dunes; your eyes refuse to focus on the figure for more than a second as it continues to twitch and dance just beyond perception.",
 			options: [
 				{ text: "Take cover behind the nearest dune crest and disguise yourself as best you can.", modify: ["paranoia", 1] },
@@ -60,7 +60,7 @@
 		},
 		{
 			biome: "desert",
-			image: "blah.png",
+			image: "desert.png",
 			text: "You have stumbled into the roots of what appears to be an expansive desert; white-hot sands shift and flow at the wind's breath and towering dust-devils wander the plains beyond the horizon. You reach the top of a nearby sand dune and are greeted by an ominous sight. Lying in the space between the crest of this dune and the next is what appears to be an enormous arachnid, easily twelve feet in span, megalith still amongst the surrounding debris.",
 			options: [
 				{ text: "Carefully approach the beast to get a better idea of what you are looking at.", modify: ["curiosity", 1] },

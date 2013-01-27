@@ -90,6 +90,38 @@ function generateMap()
 	return mapdata
 end
 
+function TitleScreen()
+	local title = {
+		image = love.graphics.newImage('graphics/title.png')
+	}
+	
+	function title:click(mx, my, button)
+		self:newGame()
+	end
+	
+	function title:declick()
+	end
+	
+	function title:draw()
+		love.graphics.draw(self.image)
+	end
+	
+	function title:newGame()
+		local mapdata = generateMap()
+		local map = Map(0, 0, mapdata)
+		
+		local e = io.open('data/events.argon')
+		local events = argon.load(e:read("*all"))
+		
+		pushState(MapState(mapdata, events))
+	end
+	
+	function title:update(dtime)
+	end
+
+	return title
+end
+
 function love.load()
 	--local f = io.open('data/map.argon')
 	--local mapdata = argon.load(f:read('*all'))
@@ -101,7 +133,7 @@ function love.load()
 	local events = argon.load(e:read("*all"))
 	
 	state = {}
-	state[1] = MapState(mapdata, events)
+	state[1] = TitleScreen()
 	
 	love.mouse.setVisible(false)	
 end
@@ -111,7 +143,7 @@ function love.draw()
 end
 
 function love.keypressed(key)
-	love.event.push('q')
+	love.event.push('quit')
 end
 
 function love.mousepressed(mx, my, button)
