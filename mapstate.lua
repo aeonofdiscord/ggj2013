@@ -31,14 +31,15 @@ function MapState(mapdata, events)
 				end
 			end
 			local blip = Blip(g.x, g.y, self, e.biome, e.slider, e.flag)
-         blip.event = e
-         blip:testConditions()
-         e.blip = blip
+			blip.event = e
+			blip:testConditions()
+			e.blip = blip
+			
 			self.scene:add(blip)
          
-         if e.biome then
-            self.map:overwrite(g.x, g.y, e.biome)
-         end
+			 if e.biome then
+				self.map:overwrite(g.x, g.y, e.biome)
+			 end
 			
 			table.insert(self.blips, blip)
 			table.insert(self.events, e)
@@ -67,7 +68,7 @@ function MapState(mapdata, events)
 		self.ui:add(self.cursor)
 		
 		self.ui:add(PulseMonitor())
-      self.ui:add(OxygenMonitor())
+		self.ui:add(OxygenMonitor())
 	end
 	
 	function mapstate:init()
@@ -134,7 +135,7 @@ function MapState(mapdata, events)
 			player.y = py
 		
 			local event = self:eventAt(player.x, player.y)
-         local event_key = 0
+			local event_key = 0
          
 			if event then
             if event.blip.active then

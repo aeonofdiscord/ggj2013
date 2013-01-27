@@ -148,7 +148,7 @@ function love.draw()
 end
 
 function love.keypressed(key)
-	love.event.push('quit')
+	if key == 'escape' then love.event.push('quit') end
 end
 
 function love.mousepressed(mx, my, button)
