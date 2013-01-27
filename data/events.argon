@@ -93,8 +93,6 @@
 				{ text: "Avoid the hollow completely and move on with your travels.", modify: ["paranoia", 1], result:"You decide that, given the surrounding environment, being trapped in a cave possessed of strange, glowing life forms is probably an even less favorable situation than enduring the blistering, parched air for a few miles more. You continue on your set path in agony for a measure of time, finally coming out of the parched grasslands and into more balanced environments. Your equipment has taken serious damage from the overheating and several sensors are giving off obviously incorrect readings." },
 				{ text: "Travel to the rear of the cave to try and discover the source of the glow.", modify: ["curiosity", 1], result:"Curiosity overwhelms you and you forge directly toward the rear of the passage; the shifting emanation teasing your senses and your imagination. You round the corner in fairly short order and are greeted by a wondrous sight, the cave ends in a sheer drop into a labyrinthine underground chasm. Its walls adorned with what appear to be enormous fungi; each one the size of a man or greater, casting a dim, eerie illumination as far as the eye can see in both directions. You see no way to safely descend the chasm walls; so resolve instead to observe the unusual beings a while longer; before exiting the cave the same way you had entered." },
 			],
-<<<<<<< HEAD
-=======
 		},
       
       
@@ -190,7 +188,6 @@
          slider:{type:"aggression", amount:0},
          flag:"ENDING",
          options: [],
->>>>>>> fd4fcbe3a139f8430e8a1fa208b906265a82984f
 		},
 	]
 }
