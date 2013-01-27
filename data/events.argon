@@ -69,7 +69,7 @@
 			]
 		},
 		{
-			image: "blah.png",
+			image: "sunset.png",
 			text: "As the last hints of the oppressive glow of the sun finally disappear over the horizon, the world around you seems vastly changed. Small creatures scurry for cover or begin to burrow their way underground; as the moments pass the reason becomes clear. A pervasive chill begins to seep its way into your bones and within minutes you are profoundly cold. Your muscles complain about the various aches of the day's activities and you begin to feel weary. The night air is bitter chill and utterly still; as the world around you suddenly seems deserted.",
 			options: [
 				{ text: "Look for a comfortable spot and attempt to get some sleep.", modify: ["pragmatism", 1],result: "You are able to find a suitably sheltered spot before very long, and you settle down to rest for the night. The night is cold, but in the shelter of some tall craggy rocks you avoid the worst of the bitter winds. It doesn't take long for you to fall asleep, and in the morning you feel reasonably well rested." },
@@ -88,11 +88,46 @@
 		{
 			image: "blah.png",
 			text: "You find yourself walking amidst parched looking plants, their stems withered and drooping in the oppressive heat of the high noon sun. The temperature is becoming unbearable inside your suit; continuing onward like this risks serious physiological damage; scanning the horizon you notice a small hollow in a nearby hillside, the only available cover in what is beginning to feel like a tinderbox, the cave proceeds deeper into the hill, turning a bend several meters into the path. The rock walls neighboring this turn are bathed in a gentle, azure blue light.",
-         options: [
+			options: [
 				{ text: "Set up a small camp in the entrance of the cave and rest for a while.", modify: ["pragmatism", 1], result:"Venturing just inside the mouth of the small hollow provides adequate cover from the blaring star outside; just moments after entering a feeling of intense relief washes over your entire being, you settle comfortably into one of the softer, dustier outcroppings along the cave walls and rest in peace for some six or seven hours; leaving the comfort of the hollow only when the heat of the day has passed and is more tolerable." },
 				{ text: "Avoid the hollow completely and move on with your travels.", modify: ["paranoia", 1], result:"You decide that, given the surrounding environment, being trapped in a cave possessed of strange, glowing life forms is probably an even less favorable situation than enduring the blistering, parched air for a few miles more. You continue on your set path in agony for a measure of time, finally coming out of the parched grasslands and into more balanced environments. Your equipment has taken serious damage from the overheating and several sensors are giving off obviously incorrect readings." },
 				{ text: "Travel to the rear of the cave to try and discover the source of the glow.", modify: ["curiosity", 1], result:"Curiosity overwhelms you and you forge directly toward the rear of the passage; the shifting emanation teasing your senses and your imagination. You round the corner in fairly short order and are greeted by a wondrous sight, the cave ends in a sheer drop into a labyrinthine underground chasm. Its walls adorned with what appear to be enormous fungi; each one the size of a man or greater, casting a dim, eerie illumination as far as the eye can see in both directions. You see no way to safely descend the chasm walls; so resolve instead to observe the unusual beings a while longer; before exiting the cave the same way you had entered." },
 			],
 		},
+		{
+			trigger: "curiosity_ending_1",
+			sliders: ["curiosity": 5],
+			image: "canyon.png",
+			biome: "canyon",
+			text: "At the base of one cyclopean peak you spy the entrance to a cavern. The interior of the cave is shrouded in darkness, but from a distance you can see the grass around the cave-mouth, bleached white by the sun, in stark contrast to the lurid vegetation that covers much of this world's surface. As your eyes take in the scene, your gaze alights upon something you had first assumed to be a large, chalky rock - it is in fact, you now realise, part of an enormous skull, one that can only have belonged to some great chthonic behemoth making its home in the fathomless depths of the earth. The cave entrance is silent; no exotic fauna dwell here, and no wind disturbs the violet grass.",
+			options: [
+				{ text: "Enter and explore the cave further.", modify: ["curiosity", 1], chain: "curiosity2" },
+				{ text: "Leave the cave and explore further afield.", modify: ["pragmatism", 1]}
+			]
+		},
+		{
+			trigger: "curiosity2",
+			image: "blah.png",
+			text: "In the depths of the cavern, your feeble illumination is barely adequate to light the way ahead. A dark viscous fluid drips from the ceiling, forming small pools that reflect the glint of your flashlight. Your environmental sensors are alerting you that the air in this cavern is thick with toxic spores. Ahead, you can see something glowing, faintly.",
+			options: [
+				{ text: "Press further into the cavern.", modify: ["curiosity", 1], chain: "curiosity3" },
+				{ text: "Arm yourself with a heavy rock from the cave floor.", modify: ["aggression", 1], chain: "curiosity3"}
+			]
+		},
+		{
+			trigger: "curiosity3",
+			image: "blah.png",
+			text: "You make your way deeper into the cave, trying to reach the faint glow in the distance. The rocks beneath your feet are slippery with moisture, and you can hear the sounds of subterranean creatures scrabbling at the rock walls surrounding you. As you continue down the passageway, the light in the up ahead seems ever more distant - sometimes as if it's hovering just at the limit of your vision, leading you ever deeper.",
+			options: [
+				{ text: "Continue following the light.", modify: ["curiosity", 1], chain: "curiosity4" },
+			]
+		}
+		{
+			trigger: "curiosity4",
+			image: "blah.png",
+			text: "",
+			options: [
+			]
+		}
 	]
 }
