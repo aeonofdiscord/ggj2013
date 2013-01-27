@@ -115,8 +115,8 @@ function TitleScreen()
 		local mapdata = generateMap()
 		local map = Map(0, 0, mapdata)
 		
-		local e = io.open('data/events.argon')
-		local events = argon.load(e:read("*all"))
+		local e = love.filesystem.newFile('data/events.argon')
+		local events = argon.load(e:read())
 		
 		pushState(MapState(mapdata, events))
 	end
@@ -134,8 +134,8 @@ function love.load()
 	local mapdata = generateMap()
 	local map = Map(0, 0, mapdata)
 	
-	local e = io.open('data/events.argon')
-	local events = argon.load(e:read("*all"))
+	local file = love.filesystem.newFile('data/events.argon')
+   local events = file:read()
 	
 	state = {}
 	state[1] = TitleScreen()
