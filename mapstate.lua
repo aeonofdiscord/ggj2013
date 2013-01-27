@@ -31,7 +31,10 @@ function MapState(mapdata, events)
 				end
 			end
 			local blip = Blip(g.x, g.y, self, e.biome, e.slider, e.flag)
+			blip.event = e
 			blip:testConditions()
+			e.blip = blip
+			
 			self.scene:add(blip)
          
 			 if e.biome then
@@ -120,6 +123,10 @@ function MapState(mapdata, events)
 			px = px+1
 			py = py+1
 		end
+      
+      for _,e in ipairs(self.blips) do
+         print(e.active)
+      end
 		
 		
 		local tile = self:tileAt(px, py)
@@ -131,13 +138,15 @@ function MapState(mapdata, events)
 			local event_key = 0
          
 			if event then
-				self:doEvent(event)
-            local blip_no = self:blipIdAt(player.x, player.y)
-            local blip = self:blipAt(player.x, player.y)
-            local event_no = self:blipIdAt(player.x, player.y)
-            table.remove(self.blips, blip_no)
-            table.remove(self.events, event_no)
-            self.scene:remove(blip)
+            if event.blip.active then
+               self:doEvent(event)
+               local blip_no = self:blipIdAt(player.x, player.y)
+               local blip = self:blipAt(player.x, player.y)
+               local event_no = self:eventIdAt(player.x, player.y)
+               table.remove(self.blips, blip_no)
+               table.remove(self.events, event_no)
+               self.scene:remove(blip)
+            end
 			end
          
          table.remove(self.blips, event_key)

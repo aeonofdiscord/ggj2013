@@ -4,7 +4,7 @@ require 'textbox'
 
 function EventState(event)
 	local eventstate = {
-		options = {}
+		options = {},
 	}
 	
 	function eventstate:clearText()
@@ -20,12 +20,22 @@ function EventState(event)
 		self.scene:declick(mx, my, button)
 	end
    
-   function eventstate:addDoneOption()
+   function eventstate:addDoneOption(trigger)
       local action = function()
          popState()
+         print(trigger)
+         if trigger then
+            for _,e in ipairs(state[2].blips) do
+               print(e.condition_flag)
+               if trigger == e.condition_flag then
+                  pushState(EventState(e.event))
+               end
+            end
+         end
       end
       
 		local option = Button(40, self.image.h+10+self.text.h+10, 100, 30, "Done", action)
+      option.trigger = trigger
 		table.insert(self.options, option)
 		self.scene:add(option)
    end
@@ -56,7 +66,7 @@ function EventState(event)
 				if o.result then
 					self.text = TextBox(10, image.h + 10, o.result)
 					self.scene:add(self.text)
-					eventstate:addDoneOption()
+					eventstate:addDoneOption(o.trigger)
 				else
 					popState()
 				end

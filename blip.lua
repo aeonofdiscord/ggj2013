@@ -12,7 +12,7 @@ function Blip(x, y, state, biome, slider, flag)
 	}
 	
 	function blip:draw()
-		if active == false then 
+		if self.active == false then 
 			return
 		end
       
@@ -37,10 +37,12 @@ function Blip(x, y, state, biome, slider, flag)
 		end
       
       if self.condition_flag then
-         if(flags[self.condition_flag] == false) then
+         --[[if(flags[self.condition_flag] == false) then
             self.active = false
             return
-         end
+         end]]
+         self.active = false
+         return
       end
         
       self.active = true
