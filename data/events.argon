@@ -61,7 +61,7 @@
 		},
 		{
 			biome: "desert",
-			image: "desert.png",
+			image: "spider.png",
 			text: "You have stumbled into the roots of what appears to be an expansive desert; white-hot sands shift and flow at the wind's breath and towering dust-devils wander the plains beyond the horizon. You reach the top of a nearby sand dune and are greeted by an ominous sight. Lying in the space between the crest of this dune and the next is what appears to be an enormous arachnid, easily twelve feet in span, megalith still amongst the surrounding debris.",
 			options: [
 				{ text: "Carefully approach the beast and guage its reaction.", modify: ["empathy", 1], result:"Quietly scrambling down the bank of sand toward the beast quickly reveals your initial mistake. This is no living beast, but rather an enormous shed skin of some description; its translucent coating shimmering in the midday sunlight; one end of the remains appears to be torn in several places, the innards are slick with some unknown fluid and a series of indents in the surrounding sand lead off into the wastes. It would seem whatever creature spawned this desiccated shell did so only a short time ago and lingering here is probably a poor idea." },
@@ -99,7 +99,7 @@
       
       {
          biome: "desert",
-			image: "desert.png",
+			image: "spider.png",
 			text: "The harshness of this world seems to know no end; you stumble into yet another expanse of blazing hot sand; almost glassy from the constant overexposure. But by now you have hardened yourself against such trifles; the heat will not claim you this time, nor will the seeming endlessness of the arid wastes ahead. After an hour of trudging through the dune sea; you crest another bank and are greeted with a terrifying sight. In the space between the shifting sands ahead you can just make out the shadow of something monstrous lurking; half-buried in the sands, pigmented for almost perfect camouflage among the bleached expanse. Your eyes lock with those of the beast and in an instant it is upon you; standing barely five feet from your arms reach is a gargantuan arachnid, the two closest of its eight limbs raised toward the heavens and its mandibles dripping with foul-looking toxin. The creature is holding its position; emitting a low, guttural hiss which echoes outward across the surrounding desert.",
          slider:{type:"aggression", amount:3},
          options: [
@@ -109,7 +109,7 @@
 			],
 		},
       {
-			image: "desert.png",
+			image: "spider.png",
 			text: "Your journey is not yet finished; your eyes open once more to the sight of the frozen blackness of night, your eyesight blurry and your mind groggy from the harsh treatment. Attempting to turn yourself over and reclaim a footing of some description, it seems like every muscle in your body complains all at once; every action causing blistering, screaming pain to shoot through your limbs. Your mind clears a little and your thoughts turn to your adversary, glancing around you see no sign of the monster. It appears to have lost interest in the conflict for one reason or another. Just as this realization prompts a sigh of relief, the world around you begins to stir once more. Struggling and bunched over in agony you manage to get onto your knees in time to see a thick formation of swirling dust on the horizon. Such sights are commonplace in the deserts of this world; so why this rotten feeling in your gut. Then you come to the realization that the cloud is moving; not ponderously as one would expect, but with great speed in this direction and worst of all; against the wind.",
          flag:"AGGRESSION_ENDING_1",
          options: [
