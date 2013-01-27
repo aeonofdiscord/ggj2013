@@ -86,7 +86,7 @@
 			]
 		},
 		{
-			image: "blah.png",
+			image: "cave.png",
 			text: "You find yourself walking amidst parched looking plants, their stems withered and drooping in the oppressive heat of the high noon sun. The temperature is becoming unbearable inside your suit; continuing onward like this risks serious physiological damage; scanning the horizon you notice a small hollow in a nearby hillside, the only available cover in what is beginning to feel like a tinderbox, the cave proceeds deeper into the hill, turning a bend several meters into the path. The rock walls neighboring this turn are bathed in a gentle, azure blue light.",
          options: [
 				{ text: "Set up a small camp in the entrance of the cave and rest for a while.", modify: ["pragmatism", 1], result:"Venturing just inside the mouth of the small hollow provides adequate cover from the blaring star outside; just moments after entering a feeling of intense relief washes over your entire being, you settle comfortably into one of the softer, dustier outcroppings along the cave walls and rest in peace for some six or seven hours; leaving the comfort of the hollow only when the heat of the day has passed and is more tolerable." },
