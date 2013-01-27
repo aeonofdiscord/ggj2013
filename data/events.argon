@@ -40,7 +40,7 @@
 		},
 		{
 			biome: "canyon",
-			image: "blah.png",
+			image: "canyon.png",
 			text: "As you press forward the pathway seems to narrow; the canyon walls now looming far overhead and the thick canopy causing your vision of the path to become murky and obscured; until you finally come to what appears to be the end of the canyon. As you begin to turn back however, movement in the periphery of your vision pulls your attention, staring for a few moments it becomes clear that the blockage is in fact moving. As your eyes fully adjust to the shadows you can make out a mass of vegetative tendrils; thick with briarthorn and meshed tightly together; it shudders and quakes as it blocks your progress forward.",
 			options: [
 				{ text: "Proceed toward the obstruction.", modify: ["empathy", 1], result:"You decide to approach the quivering mass in as calm a manner as possible. Keeping your arms low and still, you cautiously step within reach of the thorny appendages. The plants seem to pay you little mind, peering more closely into the tangled web reveals a thin patch of ground, free of obstruction. It appears just wide enough for you to sidle through and continue onwards; the thorns allow you to do so with little impediment."},
@@ -50,7 +50,7 @@
 		},
 		{
 			biome: "desert",
-			image: "blah.png",
+			image: "desert.png",
 			text: "Stumbling amidst the shifting sand dunes, the debilitating heat reflecting off the horizon in a vast haze, seemingly miles high - you notice a dark spot in the distance. For just a second it appears to take the shape of a man, distorted by the shimmering dunes; your eyes refuse to focus on the figure for more than a second as it continues to twitch and dance just beyond perception.",
 			options: [
 				{ text: "Take cover behind the nearest dune crest and disguise yourself as best you can.", modify: ["paranoia", 1] },
@@ -60,7 +60,7 @@
 		},
 		{
 			biome: "desert",
-			image: "blah.png",
+			image: "desert.png",
 			text: "You have stumbled into the roots of what appears to be an expansive desert; white-hot sands shift and flow at the wind's breath and towering dust-devils wander the plains beyond the horizon. You reach the top of a nearby sand dune and are greeted by an ominous sight. Lying in the space between the crest of this dune and the next is what appears to be an enormous arachnid, easily twelve feet in span, megalith still amongst the surrounding debris.",
 			options: [
 				{ text: "Carefully approach the beast to get a better idea of what you are looking at.", modify: ["curiosity", 1], result:"Quietly scrambling down the bank of sand toward the beast quickly reveals your initial mistake. This is no living beast, but rather an enormous shed skin of some description; its translucent coating shimmering in the midday sunlight; one end of the remains appears to be torn in several places, the innards are slick with some unknown fluid and a series of indents in the surrounding sand lead off into the wastes. It would seem whatever creature spawned this desiccated shell did so only a short time ago and lingering here is probably a poor idea." },
