@@ -37,10 +37,6 @@ function Blip(x, y, state, biome, slider, flag)
 		end
       
       if self.condition_flag then
-         --[[if(flags[self.condition_flag] == false) then
-            self.active = false
-            return
-         end]]
          self.active = false
          return
       end
