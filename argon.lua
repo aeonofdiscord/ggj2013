@@ -137,6 +137,7 @@ function argon.readsymbol(str)
 		elseif c == ',' or c == '}' then
 			break			
 		else
+         print(str)
 			argon.error("character expected (got '" .. c .."').")
 		end
 	end
